@@ -1,0 +1,26 @@
+﻿@model AlexLandscapeV0._1.Models.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+    {
+        <label id="username">Username</label>
+        @Html.TextBoxFor(m => m.Username, Model.Username, new { @class = "form-control", @placeholder = "Enter Username", @id = "txtUsername", @required = "required" })
+        <label id="password">Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password", @id = "txtPassword", @required = "required" })
+        <input type="submit" class="btn btn-primary" id="btnLogin" value="Login" />
+    }
+
+</body>
+</html>
